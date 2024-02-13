@@ -1,0 +1,51 @@
+export const daysOfWeek = [
+  {
+    id: 1,
+    day: "Sunday",
+    path: "sunday",
+    description: "A day of rest and relaxation.",
+    icon: "🌞",
+  },
+  {
+    id: 2,
+    day: "Monday",
+    path: "monday",
+    description: "Start your week with energy and focus.",
+    icon: "🚀",
+  },
+  {
+    id: 3,
+    day: "Tuesday",
+    path: "tuesday",
+    description: "Tackle tasks and make progress.",
+    icon: "📊",
+  },
+  {
+    id: 4,
+    day: "Wednesday",
+    path: "wednesday",
+    description: "Midweek hump day; keep pushing forward.",
+    icon: "🐫",
+  },
+  {
+    id: 5,
+    day: "Thursday",
+    path: "thursday",
+    description: "Stay productive, the weekend is near.",
+    icon: "⚙️",
+  },
+  {
+    id: 6,
+    day: "Friday",
+    path: "friday",
+    description: "Embrace the weekend vibes.",
+    icon: "🎉",
+  },
+  {
+    id: 7,
+    day: "Saturday",
+    path: "saturday",
+    description: "Enjoy leisure and recreation.",
+    icon: "🌈",
+  },
+];

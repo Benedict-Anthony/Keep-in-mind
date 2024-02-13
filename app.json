@@ -3,8 +3,7 @@
     "name": "reminder",
     "slug": "reminder",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "plugins": ["expo-font", "expo-image-picker"]
   }
 }

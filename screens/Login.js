@@ -52,7 +52,10 @@ export default function Login({ navigation }) {
       await storeData("user", user);
       navigation.replace("main");
     } catch (error) {
-      console.log(error);
+      Alert.alert(
+        "Invalid email or password",
+        "please provide valid credentials or sign up for an account"
+      );
     }
   };
   useEffect(() => {

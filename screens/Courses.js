@@ -6,6 +6,7 @@ import {
   RefreshControl,
   Button,
   Alert,
+  TouchableOpacity,
 } from "react-native";
 import React, { Fragment, useEffect, useLayoutEffect, useState } from "react";
 import {
@@ -38,7 +39,12 @@ export default function Courses({ navigation }) {
     timeEnd,
     day,
     courseTitle
-  ) => [
+  ) => {
+    // get selected course and toggle the boolean state
+    const selectedCourse = courses.find((item) => item.id === id);
+    selectedCourse.selected = !selectedCourse.selected;
+
+    // add or remove a course from the list
     setSelectedCourses((prev) => {
       const isAlreadySelected = prev.find((data) => data.id === id) || null;
       if (isAlreadySelected) {
@@ -48,8 +54,8 @@ export default function Courses({ navigation }) {
         ...prev,
         { code, id, courseCode, timeStart, timeEnd, day, courseTitle },
       ];
-    }),
-  ];
+    });
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -74,6 +80,8 @@ export default function Courses({ navigation }) {
     return unSubscribe;
   }
 
+  console.log(seletedCourses);
+
   // GET ALL COURSES FOR REGISTRATION
   async function getAllCourse() {
     const collectionRef = collection(database, "courses");
@@ -82,6 +90,7 @@ export default function Courses({ navigation }) {
       const data = shots.docs.map((docs) => ({
         ...docs.data(),
         id: docs.id,
+        selected: false,
       }));
       setCourses(data);
     });
@@ -135,13 +144,6 @@ export default function Courses({ navigation }) {
               padding: 10,
             }}
           >
-            <Text
-              style={{
-                fontSize: 20,
-                marginVertical: 3,
-                fontFamily: fonts.bold,
-              }}
-            ></Text>
             {seletedCourses.length > 0 && profile && (
               <Button title="Register" onPress={handleRegister} />
             )}
@@ -166,7 +168,7 @@ export default function Courses({ navigation }) {
                     )
                   }
                 >
-                  <Course item={item.item} isSelected={false} />
+                  <Course item={item.item} isSelected={item.item.selected} />
                 </Pressable>
               )}
             />

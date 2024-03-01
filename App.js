@@ -14,11 +14,15 @@ import About from "./screens/About";
 import "react-native-gesture-handler";
 import MainDrawer from "./screens/MainDrawer";
 import ProfileForm from "./screens/ProfileForm";
+import { useEffect, useState } from "react";
+import { getStoreData } from "./lib/storage";
+import { seedDatabase } from "./seed";
 
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [initialRouteName, setInitialRouteName] = useState("home");
   const [fontsLoaded, fontError] = useFonts({
     bold: require("./assets/fonts/RobotoCondensed-Bold.ttf"),
     italic: require("./assets/fonts/RobotoCondensed-Italic.ttf"),
@@ -28,6 +32,10 @@ export default function App() {
   });
 
   const onLayoutRootView = useCallback(async () => {
+    const user = await getStoreData("user");
+    if (user) {
+      setInitialRouteName("main");
+    }
     if (fontsLoaded || fontError) {
       await SplashScreen.hideAsync();
     }
@@ -37,11 +45,15 @@ export default function App() {
     return null;
   }
 
+  // useEffect(() => {
+  //   console.log("ruuning....");
+  //   // seedDatabase();
+  // }, []);
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
       <SafeAreaView style={flex.flexOne} onLayout={onLayoutRootView}>
-        <Stack.Navigator initialRouteName="main">
+        <Stack.Navigator initialRouteName={initialRouteName}>
           <Stack.Screen name="home" component={Home} />
           <Stack.Screen
             name="main"

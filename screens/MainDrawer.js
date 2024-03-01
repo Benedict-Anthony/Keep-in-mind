@@ -10,6 +10,7 @@ import Courses from "./Courses";
 import TimeTable from "./TimeTable";
 import Day from "./Day";
 import Logout from "./Logout";
+import Notification from "../components/Notification";
 
 const Drawer = createDrawerNavigator();
 
@@ -43,14 +44,16 @@ function MainDrawer({ navigation }) {
     checkUser();
   }, []);
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="weeks" component={Weeks} />
-      <Drawer.Screen name="profile" component={Profile} />
-      <Drawer.Screen name="courses" component={Courses} />
-      <Drawer.Screen name="timetable" component={TimeTable} />
-      <Drawer.Screen name="day" component={Day} />
-      <Drawer.Screen name="Logout" component={Logout} />
-    </Drawer.Navigator>
+    <Notification>
+      <Drawer.Navigator>
+        <Drawer.Screen name="weeks" component={Weeks} />
+        <Drawer.Screen name="profile" component={Profile} />
+        <Drawer.Screen name="courses" component={Courses} />
+        <Drawer.Screen name="timetable" component={TimeTable} />
+        <Drawer.Screen name="day" component={Day} />
+        <Drawer.Screen name="Logout" component={Logout} />
+      </Drawer.Navigator>
+    </Notification>
   );
 }
 export default MainDrawer;

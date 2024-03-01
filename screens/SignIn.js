@@ -87,7 +87,7 @@ export default function SignIn({ navigation }) {
       await storeData("user", user);
       navigation.replace("main");
     } catch (error) {
-      console.log(error);
+      Alert.alert("Something went wrong. Please try again");
     }
   };
 

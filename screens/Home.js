@@ -2,6 +2,8 @@ import { View, Text, Image } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { home } from "../styles/home";
 import PrimaryButton from "../components/PrimaryButton";
+import { useEffect } from "react/";
+import { getStoreData } from "../lib/storage";
 
 export default function Home({ navigation }) {
   useLayoutEffect(() => {
@@ -9,6 +11,16 @@ export default function Home({ navigation }) {
       headerShown: false,
     });
   }, []);
+
+  useEffect(() => {
+    const checkStatusAsync = async () => {
+      const user = await getStoreData("user");
+      if (user) {
+        navigation.replace("main");
+      }
+    };
+    checkStatusAsync();
+  });
   return (
     <View style={home.body}>
       <View>

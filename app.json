@@ -4,6 +4,17 @@
     "slug": "reminder",
     "version": "1.0.0",
     "assetBundlePatterns": ["**/*"],
-    "plugins": ["expo-font", "expo-image-picker"]
+    "plugins": ["expo-font", "expo-image-picker"],
+    "splash": {
+      "image": "./assets/images/preview.png",
+      "backgroundColor": "#000000",
+      "resizeMode": "30x30"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/preview.png",
+        "backgroundColor": "#00000"
+      }
+    }
   }
 }

@@ -1,20 +1,30 @@
 {
   "expo": {
-    "name": "reminder",
-    "slug": "reminder",
+    "name": "Unimind",
+    "slug": "unimind",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
     "assetBundlePatterns": ["**/*"],
     "plugins": ["expo-font", "expo-image-picker"],
-    "splash": {
-      "image": "./assets/images/preview.png",
-      "backgroundColor": "#000000",
-      "resizeMode": "30x30"
-    },
+
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/preview.png",
-        "backgroundColor": "#00000"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": ["android.permission.RECORD_AUDIO"]
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1eb9a8a2-9123-476b-a2bd-f39e8b59d225"
       }
-    }
+    },
+    "owner": "benwebdev"
   }
 }

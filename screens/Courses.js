@@ -80,8 +80,6 @@ export default function Courses({ navigation }) {
     return unSubscribe;
   }
 
-  console.log(seletedCourses);
-
   // GET ALL COURSES FOR REGISTRATION
   async function getAllCourse() {
     const collectionRef = collection(database, "courses");
@@ -114,7 +112,7 @@ export default function Courses({ navigation }) {
       });
       setSelectedCourses([]);
       setIsRegsistratring(false);
-      navigation.navigate("timetable");
+      navigation.navigate("Timetable");
     } catch (error) {}
   };
 

@@ -31,7 +31,7 @@ export default function Weeks({ navigation }) {
         <TouchableOpacity
           key={day.id}
           style={weeks.weekDay}
-          onPress={() => navigation.navigate("day", { name: day.day })}
+          onPress={() => navigation.navigate("Day", { name: day.day })}
         >
           <View>
             <Text style={weeks.weekIcon}>{day.icon}</Text>

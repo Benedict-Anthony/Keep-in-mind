@@ -39,18 +39,18 @@ function MainDrawer({ navigation }) {
       if (!user) {
         return navigation.replace("login");
       }
-      if (!profile) return navigation.replace("profile");
+      if (!profile) return navigation.replace("Profile");
     };
     checkUser();
   }, []);
   return (
     <Notification>
       <Drawer.Navigator>
-        <Drawer.Screen name="weeks" component={Weeks} />
-        <Drawer.Screen name="profile" component={Profile} />
-        <Drawer.Screen name="courses" component={Courses} />
-        <Drawer.Screen name="timetable" component={TimeTable} />
-        <Drawer.Screen name="day" component={Day} />
+        <Drawer.Screen name="Weeks" component={Weeks} />
+        <Drawer.Screen name="Profile" component={Profile} />
+        <Drawer.Screen name="Courses" component={Courses} />
+        <Drawer.Screen name="Timetable" component={TimeTable} />
+        <Drawer.Screen name="Day" component={Day} />
         <Drawer.Screen name="Logout" component={Logout} />
       </Drawer.Navigator>
     </Notification>

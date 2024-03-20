@@ -29,7 +29,7 @@ TaskManager.defineTask(BACKGROUND_FETCH_TASK, async () => {
     const snaphots = await getDocs(queryRef);
     const data = snaphots.docs.map((item) => item.data());
 
-    const { sound } = await Audio.Sound.createAsync(
+    const { sound } = await new Audio.Sound.createAsync(
       require("../assets/audio/alarm.mp3")
     );
     const courses = data[0].courses;
@@ -42,7 +42,7 @@ TaskManager.defineTask(BACKGROUND_FETCH_TASK, async () => {
       const midday = seconds.split(" ")[1].toLowerCase();
       const currentTime = `${hour}:${midday}`;
 
-      if (courses[i].timeStart === currentTime) {
+      if (courses[i].timeStart !== currentTime) {
         const title = courses[i].courseTitle;
         const body = `${courses[i].courseCode}: ${courses[i].courseTitle} class is ready to take off 🎉🎉`;
         await sound.playAsync();

@@ -122,7 +122,7 @@ export default function Login({ navigation }) {
                 <TextInput
                   autoCapitalize={"none"}
                   style={login.input}
-                  placeholder="email"
+                  placeholder="password"
                   secureTextEntry={!isVisible}
                   onChangeText={onChange}
                   onBlur={onBlur}

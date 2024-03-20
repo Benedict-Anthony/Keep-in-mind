@@ -29,6 +29,8 @@ import { getStoreData, storeData } from "../lib/storage";
 import { addDoc, collection } from "firebase/firestore";
 import Spinner from "react-native-loading-spinner-overlay";
 import CustomSpinner from "../components/CustomSpinner";
+import { Entypo } from "@expo/vector-icons";
+import { fonts } from "../constants/fonts";
 
 export default function ProfileForm({ navigation }) {
   const [image, setImage] = useState(null);
@@ -57,6 +59,7 @@ export default function ProfileForm({ navigation }) {
       });
 
       const imageURL = result.assets[0].uri;
+      console.log(result);
       setProfile({ ...profile, photo: imageURL });
 
       if (!result.canceled) {
@@ -67,6 +70,7 @@ export default function ProfileForm({ navigation }) {
     }
   };
 
+  console.log(profile.photo);
   const handleLectureChanage = () => {
     setProfileType({
       lecturer: true,
@@ -160,7 +164,7 @@ export default function ProfileForm({ navigation }) {
               { justifyContent: "space-around", marginVertical: 10 },
             ]}
           >
-            <View style={form.flex}>
+            {/* <View style={form.flex}>
               <Text style={form.label}>Lecture</Text>
               <Checkbox
                 style={form.checkbox}
@@ -168,7 +172,7 @@ export default function ProfileForm({ navigation }) {
                 color={color.primary}
                 onValueChange={handleLectureChanage}
               />
-            </View>
+            </View> */}
             <View style={form.flex}>
               <Text style={form.label}>Student</Text>
               <Checkbox
@@ -271,7 +275,7 @@ export default function ProfileForm({ navigation }) {
               </View>
 
               <View style={form.formControl}>
-                <Text style={form.label}>Department</Text>
+                <Text style={form.label}>Course Code</Text>
                 <SelectList
                   placeholder="Select Couse code"
                   inputStyles={form.selectInput}
@@ -303,8 +307,37 @@ export default function ProfileForm({ navigation }) {
           <TouchableOpacity style={form.formControl} onPress={pickImage}>
             <Text style={form.label}>Photo</Text>
             <View style={form.photoStyles}>
-              <Text style={form.photoTextStyles}>select an Image</Text>
-              <SimpleLineIcons name="picture" size={24} color={color.light} />
+              {profile.photo ? (
+                <Fragment>
+                  <Text
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      color: "white",
+                      fontSize: 23,
+                      fontFamily: fonts.medium,
+                    }}
+                  >
+                    <Entypo
+                      name="image"
+                      size={25}
+                      color="white"
+                      style={{ textAlign: "center" }}
+                    />
+                    Photo set
+                  </Text>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <Text style={form.photoTextStyles}>select an Image</Text>
+                  <SimpleLineIcons
+                    name="picture"
+                    size={24}
+                    color={color.light}
+                  />
+                </Fragment>
+              )}
             </View>
           </TouchableOpacity>
         </View>

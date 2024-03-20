@@ -155,7 +155,7 @@ export default function SignIn({ navigation }) {
               >
                 <TextInput
                   style={login.input}
-                  placeholder="email"
+                  placeholder="password"
                   secureTextEntry={!isVisible}
                   onChangeText={onChange}
                   onBlur={onBlur}
@@ -198,7 +198,7 @@ export default function SignIn({ navigation }) {
               >
                 <TextInput
                   style={login.input}
-                  placeholder="email"
+                  placeholder="confirm password"
                   secureTextEntry={!isVisible}
                   onChangeText={onChange}
                   onBlur={onBlur}

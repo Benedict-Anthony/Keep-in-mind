@@ -52,7 +52,7 @@ export default function TimeTable({ navigation }) {
         <CustomSpinner />
       ) : timeTable.length === 0 ? (
         <View style={timetableStyles.base}>
-          <PrimaryButton onPress={() => navigation.navigate("courses")}>
+          <PrimaryButton onPress={() => navigation.navigate("Courses")}>
             <Text style={timetableStyles.buttonText}>
               Register Your courses
             </Text>

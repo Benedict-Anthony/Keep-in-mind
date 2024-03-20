@@ -70,7 +70,7 @@ export default function App() {
           />
 
           <Stack.Screen name="about" component={About} />
-          <Stack.Screen name="profile" component={ProfileForm} />
+          <Stack.Screen name="Profile" component={ProfileForm} />
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>

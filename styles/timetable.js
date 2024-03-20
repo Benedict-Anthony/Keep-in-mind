@@ -37,6 +37,7 @@ export const timetableStyles = StyleSheet.create({
   courseCard: {
     paddingVertical: 10,
     paddingHorizontal: 15,
+    marginVertical: 10,
     backgroundColor: color.lightGray,
     borderRadius: 3,
   },

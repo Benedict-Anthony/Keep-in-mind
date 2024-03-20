@@ -66,7 +66,7 @@ export default function Day({ navigation, route }) {
           <Text style={{ fontSize: 25, marginBottom: 10, textAlign: "center" }}>
             Today seems to be a free day 🎉🎉
           </Text>
-          <PrimaryButton onPress={() => navigation.navigate("weeks")}>
+          <PrimaryButton onPress={() => navigation.navigate("Weeks")}>
             <Text style={{ color: "white", fontSize: 20 }}>Have fun </Text>
           </PrimaryButton>
         </View>
